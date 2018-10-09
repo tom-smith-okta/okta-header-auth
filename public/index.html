@@ -69,20 +69,23 @@ var headers = req.getAllResponseHeaders();
 
     <script language="javascript">
 
-		var req = new XMLHttpRequest();
-		req.open('GET', document.location, false);
-		req.send(null);
-		var headers = req.getAllResponseHeaders();
+    	window.onload = function() {
+			var req = new XMLHttpRequest();
+			req.open('GET', document.location, false);
+			req.send(null);
+			var headers = req.getAllResponseHeaders();
 
-		var names = headers.trim().split(/[\r\n]+/);
-		var ul = document.createElement('ul');
-		document.getElementById('myList').appendChild(ul);
- 
-		names.forEach(function(name){
-			var li = document.createElement('li');
-			ul.appendChild(li);
-			li.innerHTML += name;
-		});
+			var names = headers.trim().split(/[\r\n]+/);
+			var ul = document.createElement('ul');
+			document.getElementById('myList').appendChild(ul);
+	 
+			names.forEach(function(name){
+				var li = document.createElement('li');
+				ul.appendChild(li);
+				li.innerHTML += name;
+			});
+    		
+    	}
 
 </script>
   </head>
@@ -131,6 +134,9 @@ var headers = req.getAllResponseHeaders();
 
 
         	<h1>Welcome to Nginx-OKTA OIDC integration </h1>
+
+<!-- <div id="myList"></div>
+ -->
 <p>This page displays the OIDC token user data along with other http headers</p>
 <div id="myList"></div>
           <h1 class="jumbotron-heading">Okta and nginx</h1>
