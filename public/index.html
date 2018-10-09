@@ -84,7 +84,7 @@ var headers = req.getAllResponseHeaders();
 				ul.appendChild(li);
 				li.innerHTML += name;
 			});
-    		
+
     	}
 
 </script>
@@ -94,7 +94,7 @@ var headers = req.getAllResponseHeaders();
 
     <header>
       <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
+<!--         <div class="container">
           <div class="row">
             <div class="col-sm-8 col-md-7 py-4">
               <h4 class="text-white">About</h4>
@@ -112,7 +112,7 @@ var headers = req.getAllResponseHeaders();
               </ul>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
@@ -120,10 +120,10 @@ var headers = req.getAllResponseHeaders();
              <span class="oi oi-link-intact"></span>
              <strong>Okta and nginx</strong>
           </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+<!--           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-        </div>
+ -->        </div>
       </div>
     </header>
 
@@ -133,13 +133,12 @@ var headers = req.getAllResponseHeaders();
         <div class="container">
 
 
-        	<h1>Welcome to Nginx-OKTA OIDC integration </h1>
+          <h1 class="jumbotron-heading">This page just displays http headers.</h1>
 
 <!-- <div id="myList"></div>
  -->
 <p>This page displays the OIDC token user data along with other http headers</p>
 <div id="myList"></div>
-          <h1 class="jumbotron-heading">Okta and nginx</h1>
           <p class="lead text-muted">Integrate Okta identity management with nginx application and API access management for the ultimate in security and ease-of-use, for both admins and end-users.</p>
 
           <p class="lead text-muted">Use the following credentials to authenticate:</p>
