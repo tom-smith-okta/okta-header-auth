@@ -76,14 +76,19 @@ var headers = req.getAllResponseHeaders();
 			var headers = req.getAllResponseHeaders();
 
 			var names = headers.trim().split(/[\r\n]+/);
-			var ul = document.createElement('ul');
-			document.getElementById('myList').appendChild(ul);
-	 
+//			var ul = document.createElement('ul');
+//			document.getElementById('myList').appendChild(ul);
+	
+			var headers;
+
 			names.forEach(function(name){
-				var li = document.createElement('li');
-				ul.appendChild(li);
-				li.innerHTML += name;
+				// var li = document.createElement('li');
+				// ul.appendChild(li);
+				// li.innerHTML += name;
+				headers += '<li class=list-group-item>' + name + '</li>';
 			});
+
+			document.getElementById('headers').innerHTML = headers;
 
     	}
 
@@ -93,28 +98,9 @@ var headers = req.getAllResponseHeaders();
   <body>
 
     <header>
-      <div class="collapse bg-dark" id="navbarHeader">
-<!--         <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-md-7 py-4">
-              <h4 class="text-white">About</h4>
-              <ul class="text-white">
-                <li>Click the "downstream app, unproxied" button to see the open application that we are going to secure and proxy with Okta and nginx.</li>
-                <li>
-              <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-            </div>
-            <div class="col-sm-4 offset-md-1 py-4">
-              <h4 class="text-white">Contact</h4>
-              <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                <li><a href="#" class="text-white">Like on Facebook</a></li>
-                <li><a href="#" class="text-white">Email me</a></li>
-              </ul>
-            </div>
-          </div>
-        </div> -->
+<!--       <div class="collapse bg-dark" id="navbarHeader">
       </div>
-      <div class="navbar navbar-dark bg-dark box-shadow">
+ -->      <div class="navbar navbar-dark bg-dark box-shadow">
         <div class="container d-flex justify-content-between">
           <a href="#" class="navbar-brand d-flex align-items-center">
              <span class="oi oi-link-intact"></span>
@@ -138,7 +124,10 @@ var headers = req.getAllResponseHeaders();
 <!-- <div id="myList"></div>
  -->
 <p>This page displays the OIDC token user data along with other http headers</p>
-<div id="myList"></div>
+<div id="myList">
+	
+	<ul class="list-group" id="headers"></ul>
+</div>
           <p class="lead text-muted">Integrate Okta identity management with nginx application and API access management for the ultimate in security and ease-of-use, for both admins and end-users.</p>
 
           <p class="lead text-muted">Use the following credentials to authenticate:</p>
