@@ -1,81 +1,82 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="https://www.okta.com/sites/all/themes/developer/favicon.ico" type="image/vnd.microsoft.icon" />
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="https://www.okta.com/sites/all/themes/developer/favicon.ico" type="image/vnd.microsoft.icon" />
 
-    <title>Okta and nginx</title>
+	<title>Okta and NGINX</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap core CSS -->
+	<link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.0/examples/album/album.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="https://getbootstrap.com/docs/4.0/examples/album/album.css" rel="stylesheet">
 
-    <script language="javascript">
+	<script language="javascript">
 
-    	window.onload = function() {
+		window.onload = function() {
 			var req = new XMLHttpRequest();
 			req.open('GET', document.location, false);
 			req.send(null);
 			var headers = req.getAllResponseHeaders();
 
 			var names = headers.trim().split(/[\r\n]+/);
-//			var ul = document.createElement('ul');
-//			document.getElementById('myList').appendChild(ul);
 
 			headers = "";
 
 			names.forEach(function(name){
-				// var li = document.createElement('li');
-				// ul.appendChild(li);
-				// li.innerHTML += name;
-				headers += '<li class=list-group-item>' + name + '</li>';
+
+				headers += '<li class=list-group-item';
+
+				if (name.includes("x-okta")) {
+					headers += " style=background-color:yellow";
+				}
+
+				headers += '>'+ name + '</li>';
 			});
 
 			document.getElementById('headers').innerHTML = headers;
+		}
 
-    	}
+	</script>
+</head>
 
-</script>
-  </head>
+<body>
 
-  <body>
-
-    <header>
+	<header>
 <!--       <div class="collapse bg-dark" id="navbarHeader">
       </div>
- -->      <div class="navbar navbar-dark bg-dark box-shadow">
-        <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
-             <span class="oi oi-link-intact"></span>
-             <strong>Okta and nginx</strong>
-          </a>
+ -->
+		<div class="navbar navbar-dark bg-dark box-shadow">
+			<div class="container d-flex justify-content-between">
+				<a href="#" class="navbar-brand d-flex align-items-center">
+					<span class="oi oi-link-intact"></span>
+					<strong>Okta and NGINX</strong>
+				</a>
 <!--           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
  -->        </div>
-      </div>
-    </header>
+		</div>
+	</header>
 
-    <main role="main">
+	<main role="main">
 
-      <section class="jumbotron text-center">
-        <div class="container">
+		<section class="jumbotron text-center">
+			<div class="container">
 
+				<h1 class="jumbotron-heading">This page just displays http headers.</h1>
 
-        	<h1 class="jumbotron-heading">This page just displays http headers.</h1>
+				<div id="myList">
 
-			<div id="myList">
-				
-				<ul class="list-group" id="headers"></ul>
+					<ul class="list-group" id="headers"></ul>
+				</div>
 			</div>
-        </div>
-      </section>
-    </main>
+		</section>
+	</main>
 
 <!--
     <footer class="text-muted">
